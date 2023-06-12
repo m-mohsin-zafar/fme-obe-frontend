@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardLayoutComponent }, // default route of the module
+  { path: '', component: DashboardLayoutComponent, loadChildren: () => import('./dashboard-pages/dashboard-pages.module').then(m => m.DashboardPagesModule) },
 ];
 
 @NgModule({

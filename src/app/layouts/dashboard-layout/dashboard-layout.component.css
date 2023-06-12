@@ -1,0 +1,4 @@
+.main-content {
+  height: 100vh; /* Set the main content height to match the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds height */
+}

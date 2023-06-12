@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col">
+    <div class="mb-3 form-floating">
+      <select
+        class="form-select"
+        id="select-batch"
+        #batchOption
+        (change)="onBatchSelection($event.target)"
+      >
+        <option selected>Choose from the options</option>
+        <option *ngFor="let batch of batches" [value]="batch">
+          {{ batch }}
+        </option>
+      </select>
+      <label for="select-batch">Select Batch</label>
+    </div>
+
+    <div *ngIf="invBatch" class="alert alert-warning" role="alert">
+      <i class="bi bi-exclamation-square-fill"></i> Invalid
+      <strong>Batch</strong> Selection
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3 gy-2" *ngIf="!invBatch && studentsList.length > 0">
+
+  <div class="col-12 text-center">
+    <h3 class="fw-light">
+      Batch <span class="text-muted">{{ batchOption.value }}</span> Students
+    </h3>
+  </div>
+
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <input
+        [(ngModel)]="searchKeyword"
+        (input)="performSearch()"
+        type="text"
+        class="form-control" name="search-student" id="search-student" placeholder="">
+      <label for="search-student">Search Student by Registration No. or Name</label>
+    </div>
+  </div>
+
+  <div class="col-6" *ngFor="let student of searchResults">
+    <div class="card student-card" (click)="viewTranscript(student.RegNo)">
+      <div class="card-body">
+        <h4 class="fw-lighter">{{ student.RegNo }}</h4>
+        <h6 class="card-text">{{ student.Name }}</h6>
+        <p class="card-text fw-light">Faculty: {{ student.Faculty }}</p>
+      </div>
+    </div>
+  </div>
+</div>
