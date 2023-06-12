@@ -1,6 +1,6 @@
 {
-  "name": "fyp-app-frontend",
-  "version": "0.0.0",
+  "name": "fme-obe-frontend",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
