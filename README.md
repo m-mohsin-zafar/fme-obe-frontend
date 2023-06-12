@@ -1,6 +1,6 @@
-# Fyp App Frontend
+# FME OBE FRONTEND
 
-This repository is to be used as a starter template for the FSWD Spring 2023 Practical Exam related to frontend development
+This repository includes the frontend implemnetaion of the OBE system developed for FME at GIKI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
 
