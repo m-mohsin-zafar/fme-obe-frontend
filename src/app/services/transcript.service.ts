@@ -15,4 +15,8 @@ export class TranscriptService {
   getTranscriptByStudentId(id: number) {
     return this._http.get(`${this.BASE_URL}/pdf/${id}`, {responseType: 'blob'});
   }
+
+  getTranscriptsByBatchId(id: number) {
+    return this._http.get(`${this.BASE_URL}/pdf/batch/${id}`, {responseType: 'blob'});
+  }
 }
