@@ -1,0 +1,19 @@
+<div class="row py-2">
+  <div class="col-12">
+    <h3 class="fw-light">
+      Upload Scheme of Studies
+    </h3>
+    <hr>
+  </div>
+  <form (ngSubmit)="submitFile()">
+    <div class="col my-2">
+      <!--    Make a file input field for excel file-->
+      <label for="scheme_of_studies" class="form-label">Scheme of Studies</label>
+      <input type="file" (change)="onFileChange($event)" class="form-control" name="scheme_of_studies" id="scheme_of_studies" accept=".xlsx">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary mt-2">Upload</button>
+    </div>
+  </form>
+
+</div>

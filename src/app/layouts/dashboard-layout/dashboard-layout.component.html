@@ -1,45 +1,78 @@
 <div class="container-fluid">
-    <div class="row flex-column flex-sm-column flex-md-row">
-        <div class="col-12 col-sm-12 d-md-none">
-            <nav class="navbar navbar-expand-md">
-                <div class="container-fluid px-1">
-                    <a class="navbar-brand" href="#">Student Portal</a>
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#" aria-current="page"><i class="bi bi-columns-gap"></i>
-                                    Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" routerLink="/students" routerLinkActive="active"><i class="bi bi-person"></i> Students</a>
-                            </li>
-
-                        </ul>
-                    </div>
+  <div class="row flex-column flex-sm-column flex-md-row">
+    <div class="col-12 col-sm-12 d-md-none">
+      <nav class="navbar navbar-expand-md">
+        <div class="container-fluid px-1">
+          <a class="navbar-brand" href="#">Admin Portal</a>
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#" aria-current="page"><i class="me-2 bi bi-columns-gap"></i>
+                  Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/students" routerLinkActive="active"><i class="me-2 bi bi-person"></i>
+                  Students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#dup-menu-mobile" role="button" aria-expanded="false" aria-controls="dup-menu-mobile">
+                  <i class="me-2 bi bi-cloud-upload"></i> Data Upload
+                </a>
+                <div class="collapse ms-3" id="dup-menu-mobile" data-bs-parent=".nav">
+                  <a class="nav-link mb-1" routerLink="/upload/scheme" routerLinkActive="active">
+                    <i class="me-2 bi bi-book"></i> Scheme of Studies
+                  </a>
+                  <a class="nav-link mb-1" routerLink="/upload/students" routerLinkActive="active">
+                    <i class="me-2 bi bi-people"></i> Student Data
+                  </a>
+                  <a class="nav-link" routerLink="/upload/plo-data" routerLinkActive="active">
+                    <i class="me-2 bi bi-file-richtext"></i> PLO Sheet
+                  </a>
                 </div>
-            </nav>
+              </li>
 
-        </div>
-        <div
-            class="col-md-3 col-lg-2 d-md-flex flex-md-column vh-100 d-none d-sm-none shadow p-2 justify-content-between">
-            <!-- You can add my-auto class to vertically center the options -->
-            <nav class="nav nav-pills flex-column">
-                <a class="nav-link" href="#" aria-current="page"><i class="me-3 bi bi-columns-gap"></i> Dashboard</a>
-                <a class="nav-link" routerLink="/students" routerLinkActive="active"><i class="me-3 bi bi-person"></i> Students</a>
-            </nav>
-        </div>
-        <div class="col-md-9 col-lg-10 col-12 col-sm-12 py-2 px-2 px-sm-2 px-md-4 main-content">
 
-            <div class="container-fluid">
-                <!-- Place router outlet here -->
-                <router-outlet></router-outlet>
-            </div>
-
+            </ul>
+          </div>
         </div>
+      </nav>
+
     </div>
+    <div
+      class="col-md-3 col-lg-2 d-md-flex flex-md-column vh-100 d-none d-sm-none shadow p-2 justify-content-between">
+      <!-- You can add my-auto class to vertically center the options -->
+      <nav class="nav nav-pills flex-column">
+        <a class="nav-link" href="#" aria-current="page"><i class="me-2 bi bi-columns-gap"></i> Dashboard</a>
+        <a class="nav-link" routerLink="/students" routerLinkActive="active"><i class="me-2 bi bi-person"></i> Students</a>
+        <!--        Add a a drop down-->
+        <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#dup-menu" role="button" aria-expanded="false" aria-controls="dup-menu">
+          <i class="me-2 bi bi-cloud-upload"></i> Data Upload
+        </a>
+        <div class="collapse ms-3" id="dup-menu" data-bs-parent=".nav">
+          <a class="nav-link mb-1" routerLink="/upload/scheme" routerLinkActive="active">
+            <i class="me-2 bi bi-book"></i> Scheme of Studies
+          </a>
+          <a class="nav-link mb-1" routerLink="/upload/students" routerLinkActive="active">
+            <i class="me-2 bi bi-people"></i> Student Data
+          </a>
+          <a class="nav-link mb-1" routerLink="/upload/plo-data" routerLinkActive="active">
+            <i class="me-2 bi bi-file-richtext"></i> PLO Sheet
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-9 col-lg-10 col-12 col-sm-12 py-2 px-2 px-sm-2 px-md-4 main-content">
+
+      <div class="container-fluid">
+        <!-- Place router outlet here -->
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </div>
 </div>

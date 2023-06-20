@@ -2,3 +2,13 @@
   height: 100vh; /* Set the main content height to match the viewport height */
   overflow-y: auto; /* Enable vertical scrolling when content exceeds height */
 }
+
+.show>.nav-link {
+  color: var(--bs-nav-link-color);
+  background-color: transparent;
+}
+
+.show>.nav-link.active {
+  color: var(--bs-nav-pills-link-active-color);
+  background-color: var(--bs-nav-pills-link-active-bg);
+}
