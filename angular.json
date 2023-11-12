@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fyp-app-frontend": {
+    "fme-obe-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fyp-app-frontend",
+            "outputPath": "dist/fme-obe-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fyp-app-frontend:build:production"
+              "browserTarget": "fme-obe-frontend:build:production"
             },
             "development": {
-              "browserTarget": "fyp-app-frontend:build:development"
+              "browserTarget": "fme-obe-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fyp-app-frontend:build"
+            "browserTarget": "fme-obe-frontend:build"
           }
         },
         "test": {

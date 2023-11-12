@@ -18,4 +18,12 @@ export class StudentService {
   getStudentsByBatch(batch: number) {
     return this._http.get<Student[]>(`${this.BASE_URL}/batch/${batch}`);
   }
+
+  uploadStudentsListFileForVerification(formData: FormData) {
+    return this._http.post<Student[]>(`${this.BASE_URL}/upload/verify`, formData);
+  }
+
+  submitStudentsForPersistance(students: Student[]) {
+    return this._http.post(`${this.BASE_URL}/add-many`, students);
+  }
 }

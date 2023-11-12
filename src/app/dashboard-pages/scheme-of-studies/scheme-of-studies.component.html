@@ -1,19 +1,91 @@
 <div class="row py-2">
   <div class="col-12">
-    <h3 class="fw-light">
-      Upload Scheme of Studies
-    </h3>
-    <hr>
+    <h3 class="fw-light">Upload Scheme of Studies</h3>
+    <hr />
   </div>
   <form (ngSubmit)="submitFile()">
     <div class="col my-2">
       <!--    Make a file input field for excel file-->
-      <label for="scheme_of_studies" class="form-label">Scheme of Studies</label>
-      <input type="file" (change)="onFileChange($event)" class="form-control" name="scheme_of_studies" id="scheme_of_studies" accept=".xlsx">
+      <label for="scheme_of_studies" class="form-label"
+        >Scheme of Studies</label
+      >
+      <input
+        type="file"
+        (change)="onFileChange($event)"
+        class="form-control"
+        name="scheme_of_studies"
+        id="scheme_of_studies"
+        accept=".xlsx"
+      />
     </div>
     <div class="col-12">
       <button type="submit" class="btn btn-primary mt-2">Upload</button>
     </div>
   </form>
+</div>
 
+<div *ngIf="scheme.length === 0 && file && fileUploadSuccess" class="row py-2">
+  <div class="col-12">
+    <h3 class="fw-light">Scheme of Studies</h3>
+    <hr />
+  </div>
+  <div class="col-12">
+    <div class="alert alert-warning" role="alert">
+      No Scheme of Studies Found
+    </div>
+  </div>
+</div>
+
+<div *ngIf="schemeSubmissionStatus.error" class="col-12">
+  <div class="alert alert-warning" role="alert">
+    {{ schemeSubmissionStatus.message }}
+  </div>
+</div>
+<div *ngIf="schemeSubmissionStatus.success" class="col-12">
+  <div class="alert alert-success" role="alert">
+    {{ schemeSubmissionStatus.message }}
+  </div>
+</div>
+
+<div *ngIf="scheme.length > 0" class="row py-2">
+  <div class="col-12">
+    <h3 class="fw-light">
+      Scheme of Studies
+    </h3>
+    <hr>
+  </div>
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-striped
+      table-hover
+      table-borderless
+      align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>S/r.</th>
+            <th>Semester</th>
+            <th>Batch</th>
+            <th>Course Codee</th>
+            <th>Course Title</th>
+          </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let row of scheme; index as i" >
+              <td>{{i+1}}</td>
+              <td>{{row.Semester}}</td>
+              <td>{{row.Batch}}</td>
+              <td>{{row.CourseCode}}</td>
+              <td>{{row.CourseTitle}}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+
+          </tfoot>
+      </table>
+    </div>
+
+  </div>
+  <div class="col-12">
+    <button type="button" class="btn btn-primary mt-2" (click)="submitScheme()">Submit</button>
+  </div>
 </div>

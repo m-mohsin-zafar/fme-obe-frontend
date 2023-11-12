@@ -1,1 +1,88 @@
-<p>student-data works!</p>
+<div class="row py-2">
+    <div class="col-12">
+      <h3 class="fw-light">
+        Upload Students List
+      </h3>
+      <hr>
+
+    </div>
+    <form (ngSubmit)="submitFile()">
+      <div class="col my-2">
+        <!--    Make a file input field for excel file-->
+        <label for="scheme_of_studies" class="form-label">Students List</label>
+        <input type="file" (change)="onFileChange($event)" class="form-control" name="scheme_of_studies" id="scheme_of_studies" accept=".xlsx">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary mt-2">Upload</button>
+      </div>
+    </form>
+
+  </div>
+
+  <!-- If Students list is not empty then we render a table tow show the student's data -->
+  <div *ngIf="students.length === 0 && file && fileUploadSuccess" class="row py-2">
+    <div class="col-12">
+      <h3 class="fw-light">
+        Students List
+      </h3>
+      <hr>
+    </div>
+    <div class="col-12">
+      <div class="alert alert-warning" role="alert">
+        No Students Found
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="studentListSubmissionStatus.error" class="col-12">
+    <div class="alert alert-warning" role="alert">
+      {{studentListSubmissionStatus.message}}
+    </div>
+  </div>
+  <div *ngIf="studentListSubmissionStatus.success" class="col-12">
+    <div class="alert alert-success" role="alert">
+      {{studentListSubmissionStatus.message}}
+    </div>
+
+  <div *ngIf="students.length > 0" class="row py-2">
+    <div class="col-12">
+      <h3 class="fw-light">
+        Students List
+      </h3>
+      <hr>
+    </div>
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-striped
+        table-hover
+        table-borderless
+        align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>S/r.</th>
+              <th>Registration No.</th>
+              <th>Faculty</th>
+              <th>Name</th>
+              <th>Batch</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let student of students; index as i" >
+                <td>{{i+1}}</td>
+                <td>{{student.RegNo}}</td>
+                <td>{{student.Faculty}}</td>
+                <td>{{student.Name}}</td>
+                <td>{{student.Batch}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+      </div>
+
+    </div>
+    <div class="col-12">
+      <button type="button" class="btn btn-primary mt-2" (click)="submitStudents()">Submit</button>
+    </div>
+  </div>
