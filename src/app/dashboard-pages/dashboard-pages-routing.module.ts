@@ -6,18 +6,35 @@ import {StudentTranscriptPdfViewComponent} from './student-transcript-pdf-view/s
 import {SchemeOfStudiesComponent} from "./scheme-of-studies/scheme-of-studies.component";
 import {StudentDataComponent} from "./student-data/student-data.component";
 import {PloSheetsComponent} from "./plo-sheets/plo-sheets.component";
+import {MainComponent} from "./main/main.component";
 
 const routes: Routes = [
-  {path: '', component: DashboardPagesComponent},
   {
-    path: 'students', component: StudentsComponent,
+    path: '', component: DashboardPagesComponent,
     children: [
-      {path: 'transcript/:id', component: StudentTranscriptPdfViewComponent}
+      {path: '', redirectTo: 'main', pathMatch: 'full'},
+      {path: 'main', component: MainComponent},
+      {
+        path: 'students', component: StudentsComponent,
+        children: [
+          {path: 'transcript/:id', component: StudentTranscriptPdfViewComponent}
+        ]
+      },
+      {path: 'transcript/:id', component: StudentTranscriptPdfViewComponent},
+      {path: 'upload/scheme', component: SchemeOfStudiesComponent},
+      {path: 'upload/students', component: StudentDataComponent},
+      {path: 'upload/plo-data', component: PloSheetsComponent},
     ]
   },
-  { path: 'upload/scheme', component: SchemeOfStudiesComponent},
-  { path: 'upload/students', component: StudentDataComponent},
-  { path: 'upload/plo-data', component: PloSheetsComponent},
+  // {
+  //   path: 'students', component: StudentsComponent,
+  //   children: [
+  //     {path: 'transcript/:id', component: StudentTranscriptPdfViewComponent}
+  //   ]
+  // },
+  // { path: 'upload/scheme', component: SchemeOfStudiesComponent},
+  // { path: 'upload/students', component: StudentDataComponent},
+  // { path: 'upload/plo-data', component: PloSheetsComponent},
 
 ];
 

@@ -1,0 +1,10 @@
+.header {
+  font-family: 'Lato', sans-serif;
+  background: beige;
+  border-radius: 6px;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}

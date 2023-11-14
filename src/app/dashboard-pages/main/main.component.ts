@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  noOfBatches: number = 0;
+  noOfStudents: number = 0;
+  noOfCourses: number = 0;
+  noOfSemesters: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
