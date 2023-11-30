@@ -17,7 +17,7 @@
       </div>
     </form>
 
-  </div>
+</div>
 
   <!-- If Students list is not empty then we render a table tow show the student's data -->
   <div *ngIf="students.length === 0 && file && fileUploadSuccess" class="row py-2">
@@ -43,7 +43,7 @@
     <div class="alert alert-success" role="alert">
       {{studentListSubmissionStatus.message}}
     </div>
-
+    </div>
   <div *ngIf="students.length > 0" class="row py-2">
     <div class="col-12">
       <h3 class="fw-light">

@@ -20,7 +20,7 @@ export class StudentService {
   }
 
   uploadStudentsListFileForVerification(formData: FormData) {
-    return this._http.post<Student[]>(`${this.BASE_URL}/upload/verify`, formData);
+    return this._http.post(`${this.BASE_URL}/upload/verify`, formData);
   }
 
   submitStudentsForPersistance(students: Student[]) {
